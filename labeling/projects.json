@@ -1,0 +1,17 @@
+{
+  "Savety": {
+    "id": 1,
+    "tasks": 3551,
+    "url": "http://127.0.0.1:8080/projects/1/data/"
+  },
+  "Splitter": {
+    "id": 2,
+    "tasks": 13504,
+    "url": "http://127.0.0.1:8080/projects/2/data/"
+  },
+  "Cable-sagging": {
+    "id": 3,
+    "tasks": 1180,
+    "url": "http://127.0.0.1:8080/projects/3/data/"
+  }
+}

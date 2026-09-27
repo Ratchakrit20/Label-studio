@@ -1,0 +1,2 @@
+label-studio==1.23.1
+

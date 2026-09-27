@@ -1,0 +1,43 @@
+<View>
+  <Header value="เลือกคลาสแล้ววาด หรือใช้ Smart point / box ให้ SAM ช่วยเลือก" />
+  <Image name="image" value="$image" zoom="true" zoomControl="true" rotateControl="true" />
+  <BrushLabels name="label" toName="image">
+    <Label value="person" background="#00B0FF" />
+    <Label value="helmet" background="#FF9800" />
+    <Label value="gloves" background="#8BC34A" />
+    <Label value="safety_vest" background="#FFEB3B" />
+    <Label value="safety_harness" background="#00BCD4" />
+    <Label value="safety_shoes" background="#795548" />
+    <Label value="employee_badge" background="#9C27B0" />
+    <Label value="house_number_sign" background="#4CAF50" />
+    <Label value="lat-long" background="#E91E63" />
+  </BrushLabels>
+  <View visibleWhen="region-labels" whenLabelValue="house_number_sign">
+    <Header value="กรอกบ้านเลขที่ของ Mask ที่เลือก" />
+    <TextArea name="house_number" toName="image" perRegion="true" editable="true" rows="1" maxSubmissions="1" placeholder="ตัวอย่าง: 123/45" />
+  </View>
+  <KeyPointLabels name="sam_point" toName="image" smart="true">
+    <Label value="person" background="#00B0FF" smart="true" showInline="true" />
+    <Label value="helmet" background="#FF9800" smart="true" showInline="true" />
+    <Label value="gloves" background="#8BC34A" smart="true" showInline="true" />
+    <Label value="safety_vest" background="#FFEB3B" smart="true" showInline="true" />
+    <Label value="safety_harness" background="#00BCD4" smart="true" showInline="true" />
+    <Label value="safety_shoes" background="#795548" smart="true" showInline="true" />
+    <Label value="employee_badge" background="#9C27B0" smart="true" showInline="true" />
+    <Label value="house_number_sign" background="#4CAF50" smart="true" showInline="true" />
+    <Label value="lat-long" background="#E91E63" smart="true" showInline="true" />
+  </KeyPointLabels>
+  <RectangleLabels name="sam_box" toName="image" smart="true" canRotate="false">
+    <Label value="person" background="#00B0FF" smart="true" showInline="true" />
+    <Label value="helmet" background="#FF9800" smart="true" showInline="true" />
+    <Label value="gloves" background="#8BC34A" smart="true" showInline="true" />
+    <Label value="safety_vest" background="#FFEB3B" smart="true" showInline="true" />
+    <Label value="safety_harness" background="#00BCD4" smart="true" showInline="true" />
+    <Label value="safety_shoes" background="#795548" smart="true" showInline="true" />
+    <Label value="employee_badge" background="#9C27B0" smart="true" showInline="true" />
+    <Label value="house_number_sign" background="#4CAF50" smart="true" showInline="true" />
+    <Label value="lat-long" background="#E91E63" smart="true" showInline="true" />
+  </RectangleLabels>
+  <Header value="ข้อมูล label เดิมสำหรับช่วยตรวจ ไม่ใช่ผลยืนยันของคลาสใหม่" />
+  <Text name="legacy_info" value="$legacy_hint" />
+</View>

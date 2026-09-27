@@ -1,0 +1,5 @@
+label-studio-ml @ git+https://github.com/HumanSignal/label-studio-ml-backend.git
+ultralytics==8.4.75
+opencv-python==4.13.0.92
+numpy==2.2.6
+Pillow==12.3.0

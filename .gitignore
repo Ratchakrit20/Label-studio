@@ -1,0 +1,19 @@
+# Images and large source exports are transferred separately.
+Image_Sorted/
+Image_Sorted.zip
+Cable-sagging/images_fixed/
+project-*.json
+
+# Runtime databases can contain accounts and annotations.
+labeling/runtime/
+Savety/label_studio_yolo26_person/runtime/
+label-studio-backups/
+
+# Generated caches and local editor files.
+*.pt
+**/__pycache__/
+*.py[cod]
+*.db
+*.log
+.vscode/
+**/.vscode/

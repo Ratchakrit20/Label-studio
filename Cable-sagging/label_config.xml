@@ -1,0 +1,32 @@
+<View>
+  <Header value="Box: pole / SP_Open / SP_Close / SP_Damaged"/>
+  <Image name="image" value="$image" zoom="true" zoomControl="true"/>
+  <RectangleLabels name="object" toName="image" canRotate="false">
+    <Label value="pole" background="#78909C"/>
+    <Label value="SP_Open" background="#00B0FF"/>
+    <Label value="SP_Close" background="#AA00FF"/>
+    <Label value="SP_Damaged" background="#D50000"/>
+    <Label value="lat-long" background="#1DE9B6"/>
+    <Label value="datetime" background="#FFD600"/>
+  </RectangleLabels>
+  <Header value="Mask: ระบายเฉพาะตัวสายที่เห็น ไม่ถมช่องว่างกลาง loop"/>
+  <BrushLabels name="cable" toName="image">
+    <Label value="loop" background="#00C853"/>
+    <Label value="improper_loop" background="#FF6D00"/>
+    <Label value="sagging_cable" background="#FF00FF"/>
+  </BrushLabels>
+  <Header value="ข้อมูล label เดิมสำหรับช่วยตรวจ ไม่ใช่ผลยืนยันของคลาสใหม่"/>
+  <Text name="legacy_info" value="$legacy_hint"/>
+  <Header value="AI: คลิกช่วยเลือกสาย"/>
+  <KeyPointLabels name="cable_point" toName="image" smart="true">
+    <Label value="loop" background="#00C853" smart="true"/>
+    <Label value="improper_loop" background="#FF6D00" smart="true"/>
+    <Label value="sagging_cable" background="#FF00FF" smart="true"/>
+  </KeyPointLabels>
+  <Header value="AI: ลากกรอบรอบสาย"/>
+  <RectangleLabels name="cable_box" toName="image" smart="true">
+    <Label value="loop" background="#00C853" smart="true"/>
+    <Label value="improper_loop" background="#FF6D00" smart="true"/>
+    <Label value="sagging_cable" background="#FF00FF" smart="true"/>
+  </RectangleLabels>
+</View>
