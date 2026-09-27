@@ -6,6 +6,8 @@
     <Label value="SP_Open" background="#00B0FF"/>
     <Label value="SP_Close" background="#AA00FF"/>
     <Label value="SP_Damaged" background="#D50000"/>
+    <Label value="SP2_Correct" background="#00C853"/>
+    <Label value="SP2_Incorrect_Unclear" background="#D50000"/>
     <Label value="lat-long" background="#1DE9B6"/>
     <Label value="datetime" background="#FFD600"/>
   </RectangleLabels>
