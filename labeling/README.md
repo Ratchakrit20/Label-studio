@@ -130,7 +130,9 @@ python .\labeling\import_json.py "D:\งาน\export.json" Savety --dry-run
 นำเข้าจริง:
 
 ```powershell
-python .\labeling\import_json.py "D:\งาน\export.json" Savety
+python .\labeling\import_json.py "D:\ratchakt\Label-studio\labeling\label-json\savety\project-1-at-2026-09-27-21-34-611016fc.json" Savety
+python .\labeling\import_json.py "D:\ratchakt\Label-studio\labeling\label-json\splitter\project-2-at-2026-09-27-21-34-3810a61e.json" Splitter
+python .\labeling\import_json.py "D:\ratchakt\Label-studio\labeling\label-json\cable-sagging\project-3-at-2026-09-27-21-34-c6341cbd.json" Cable-sagging
 ```
 
 ใช้ชื่อ `Savety`, `Splitter`, `Cable-sagging` หรือ project ID ได้ ก่อนเขียนจริงระบบสำรองฐานข้อมูลล่าสุดไว้ที่ `labeling/runtime/label-studio-fresh/before-import-json.sqlite3` ผลลัพธ์ที่ชนิดไม่ตรง schema รวมถึง Polygon จะถูกข้ามและนับใน `skipped_regions`

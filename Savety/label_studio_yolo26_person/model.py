@@ -49,9 +49,16 @@ class YOLO26PersonSegmentation(LabelStudioMLBase):
         return root
 
     def _resolve_image_path(self, task: Dict) -> Path:
-        image_ref = task.get("data", {}).get(self.IMAGE_KEY)
+        task_data = task.get("data", {})
+        # Tasks added from Label Studio's Local Files picker can be stored
+        # under "$undefined$" when the import was not bound to the image
+        # variable.  Older/exported tasks use the configured "image" field.
+        # Support both so the inference backend sees the same local-file URL.
+        image_ref = task_data.get(self.IMAGE_KEY) or task_data.get("$undefined$")
         if not image_ref:
-            raise ValueError(f"Task {task.get('id')} has no data['{self.IMAGE_KEY}']")
+            raise ValueError(
+                f"Task {task.get('id')} has neither data['{self.IMAGE_KEY}'] nor data['$undefined$']"
+            )
 
         # Check native Windows paths before urlparse(), which interprets "C:" as a URL scheme.
         native_path = Path(image_ref)

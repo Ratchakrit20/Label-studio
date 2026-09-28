@@ -1,0 +1,21 @@
+{
+  "settings_version": "0.0.6",
+  "datasets_dir": "D:\\ratchakt\\Label-studio\\datasets",
+  "weights_dir": "weights",
+  "runs_dir": "runs",
+  "uuid": "b2123741dfc612c95d37ae4a7b923375acac15d1a8b11e12b8b03d1f08f0062d",
+  "sync": true,
+  "api_key": "",
+  "openai_api_key": "",
+  "clearml": true,
+  "comet": true,
+  "dvc": true,
+  "hub": true,
+  "mlflow": true,
+  "neptune": true,
+  "raytune": true,
+  "tensorboard": false,
+  "wandb": false,
+  "vscode_msg": true,
+  "openvino_msg": true
+}

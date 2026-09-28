@@ -28,6 +28,11 @@ for job,p in projects.items():
             # Bulk insert avoids that optional post_save integration, retaining SSRF protections.
             backend=MLBackend(project_id=p['id'],url=url,title=name,is_interactive=interactive)
             MLBackend.objects.bulk_create([backend])
+            backend=MLBackend.objects.get(project_id=p['id'],url=url)
+        # Keep the roles correct even when a backend connection already
+        # existed.  Label Studio routes Smart point/box calls to an
+        # interactive backend, so YOLO must never retain this flag.
+        MLBackend.objects.filter(pk=backend.pk).update(title=name,is_interactive=interactive)
         backend.update_state()
         backend.refresh_from_db()
         if backend.state!='CO':

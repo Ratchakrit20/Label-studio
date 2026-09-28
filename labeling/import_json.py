@@ -94,12 +94,26 @@ def main():
     schema = controls(project.label_config)
     existing = {}
     for task in Task.objects.filter(project=project).prefetch_related("annotations"):
-        key = image_name(task.data.get("image"))
+        key = image_name(task.data.get("image") or task.data.get("$undefined$"))
+
+        # ข้าม task เก่าที่ไม่มีรูปภาพ จึงใช้จับคู่ annotation ไม่ได้
+        if not key:
+            print(f"Skip task without data.image: id={task.id}")
+            continue
+
         if key in existing:
             raise SystemExit(f"Duplicate image filename in project: {key}")
         existing[key] = task
 
     matched = added = duplicates = missing = skipped_regions = 0
+    print("EXISTING SAMPLE:")
+    for key, task in list(existing.items())[:5]:
+        print(repr(key), task.id, repr(task.data.get("image") or task.data.get("$undefined$")))
+
+    print("SOURCE SAMPLE:")
+    for source_task in source_tasks[:5]:
+        value = source_task.get("data", {}).get("image", source_task.get("image_value"))
+        print(repr(image_name(value)), repr(value))
     prepared = []
     for source_task in source_tasks:
         task = existing.get(image_name(source_task.get("data", {}).get("image", source_task.get("image_value"))))
