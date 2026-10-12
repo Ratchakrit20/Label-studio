@@ -154,3 +154,16 @@ label-studio-backups/
 ไฟล์ `.pt` ถูกตัดออกด้วย `.gitignore` เมื่อเปิด YOLO หรือเรียก SAM ครั้งแรก ระบบจะดาวน์โหลดและวางไฟล์ไว้ที่ตำแหน่งที่ถูกต้องโดยอัตโนมัติ จึงไม่ต้องใช้ Git LFS
 
 การดาวน์โหลดครั้งแรกต้องเชื่อมต่ออินเทอร์เน็ต และอาจใช้เวลาตามความเร็วเครือข่าย ห้าม commit `Image_Sorted.zip` เพราะมีขนาดประมาณ 5.4 GB
+
+
+
+cd D:\ratchakt\Label-studio
+conda activate label-studio
+
+$env:LABEL_STUDIO_BASE_DATA_DIR = "$PWD\labeling\runtime\label-studio-fresh"
+
+New-Item -ItemType Directory -Force .\exports
+
+label-studio export 1 JSON --export-path="$PWD\exports\Savety.json"
+label-studio export 2 JSON --export-path="$PWD\exports\Splitter.json"
+label-studio export 3 JSON --export-path="$PWD\exports\Cable-sagging.json"
