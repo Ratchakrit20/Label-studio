@@ -23,22 +23,14 @@ REVIEW = "99_ตรวจสอบเลขท้ายไม่ตรงกต�
 EXTENSIONS = {".jpeg", ".jpg", ".png"}
 
 # แก้ไข path เริ่มต้นตรงนี้ได้เลย
-# เพิ่มโฟลเดอร์รูปได้หลายบรรทัด โดยใส่ comma (,) คั่นในรายการ
+# ระบุโฟลเดอร์ใหญ่สุดได้เลย สคริปต์จะค้นหาในโฟลเดอร์ย่อยทุกระดับ
+# เพิ่มโฟลเดอร์ต้นทางได้หลายบรรทัด โดยใส่ comma (,) คั่นในรายการ
 DEFAULT_SOURCES = [
-    Path(r"D:\ratchakt\2026-10-01\2026-10-01\images_batch0001_20261006_040851"),
-    Path(r"D:\ratchakt\2026-10-01\2026-10-01\images_batch0002_20261006_041654"),
-    Path(r"D:\ratchakt\2026-10-01\2026-10-01\images_batch0003_20261006_042255"),
-    Path(r"D:\ratchakt\2026-10-01\2026-10-01\images_batch0004_20261006_042857"),
-    Path(r"D:\ratchakt\2026-10-01\2026-10-01\images_batch0005_20261006_043431"),
-    Path(r"D:\ratchakt\2026-10-01\2026-10-01\images_batch0006_20261006_044045"),
-    Path(r"D:\ratchakt\2026-10-01\2026-10-01\images_batch0007_20261006_044612"),
-    Path(r"D:\ratchakt\2026-10-01\2026-10-01\images_batch0008_20261006_045139"),
-    Path(r"D:\ratchakt\2026-10-01\2026-10-01\images_batch0009_20261006_045651"),
-    Path(r"D:\ratchakt\2026-10-01\2026-10-01\images_batch0010_20261006_050203"),
-    Path(r"D:\ratchakt\2026-10-01\2026-10-01\images_batch0011_20261006_050652")
+    Path(r"E:\ratchakt\2026-10-6\2026-10-6")
 ]
 # โฟลเดอร์เก็บผลลัพธ์ สามารถเปลี่ยนเป็น path อื่นได้
-DEFAULT_DESTINATION = Path(r"D:\ratchakt\Label-studio\All-image-LMR\2026-10-01")
+DEFAULT_DESTINATION = Path(r"E:\ratchakt\All-image-LMR")
+# DEFAULT_DESTINATION = Path(r"D:\ratchakt\Label-studio\All-image-LMR\2026-10-01")
 
 
 def folder_for(path):
@@ -62,7 +54,7 @@ def organize_images(sources, destination, dry_run=False):
     existing = {p.name.casefold() for p in destination.rglob("*") if p.is_file()}
     stats = Counter()
     for source in sources:
-        for path in sorted(source.iterdir()):
+        for path in sorted(source.rglob("*")):
             if not path.is_file() or path.suffix.lower() not in EXTENSIONS:
                 continue
             stats["scanned"] += 1
@@ -133,7 +125,7 @@ def update_readme(sources, destination, stats):
         "```powershell", "python organize_images.py --dry-run", "```", "",
         "## กติกา", "",
         "- รองรับ .jpeg, .jpg, .png และอ่านเลขหลัง _ ตัวสุดท้ายก่อนนามสกุล",
-        "- อ่านไฟล์โดยตรงในทุกโฟลเดอร์ต้นทาง ไม่ค้นโฟลเดอร์ย่อยของต้นทาง",
+        "- ค้นหารูปในทุกโฟลเดอร์ต้นทางและโฟลเดอร์ย่อยทุกระดับ",
         "- ข้ามชื่อไฟล์ที่มีอยู่ในปลายทางทุกโฟลเดอร์ย่อย โดยไม่แยกตัวพิมพ์ใหญ่–เล็ก",
         "- ตรวจซ้ำจากชื่อไฟล์ ไม่ใช่เนื้อหารูป: เปลี่ยนชื่อจะถือเป็นไฟล์ใหม่",
         "- ไม่เขียนทับรูปเดิม ไม่ย้ายหรือลบต้นฉบับ",
@@ -151,7 +143,7 @@ def main():
         "--source",
         type=Path,
         action="append",
-        help="Source image folder. Repeat --source for multiple folders.",
+        help="Source folder; images in subfolders are included. Repeat for multiple folders.",
     )
     parser.add_argument(
         "--destination",
