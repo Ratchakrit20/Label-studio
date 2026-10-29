@@ -22,15 +22,19 @@ FOLDERS = {
 REVIEW = "99_ตรวจสอบเลขท้ายไม่ตรงกติกา"
 EXTENSIONS = {".jpeg", ".jpg", ".png"}
 
-# แก้ไข path เริ่มต้นตรงนี้ได้เลย
-# ระบุโฟลเดอร์ใหญ่สุดได้เลย สคริปต์จะค้นหาในโฟลเดอร์ย่อยทุกระดับ
-# เพิ่มโฟลเดอร์ต้นทางได้หลายบรรทัด โดยใส่ comma (,) คั่นในรายการ
+# ใส่ชื่อโฟลเดอร์งานเพียงจุดเดียว
+JOB_FOLDER_NAME = "2026-10-07"
+
+# ต้นทาง: สคริปต์จะค้นหารูปในโฟลเดอร์ย่อยทุกระดับ
+SOURCE_ROOT = Path(r"E:\ratchakt")
 DEFAULT_SOURCES = [
-    Path(r"E:\ratchakt\2026-10-6\2026-10-6")
+    SOURCE_ROOT / JOB_FOLDER_NAME,
 ]
-# โฟลเดอร์เก็บผลลัพธ์ สามารถเปลี่ยนเป็น path อื่นได้
-DEFAULT_DESTINATION = Path(r"E:\ratchakt\All-image-LMR")
-# DEFAULT_DESTINATION = Path(r"D:\ratchakt\Label-studio\All-image-LMR\2026-10-01")
+
+# ปลายทาง: สร้างโฟลเดอร์ชื่อเดียวกับงานโดยอัตโนมัติ
+DESTINATION_ROOT = SOURCE_ROOT / "All-image-LMR"
+# สคริปต์จะสร้างโฟลเดอร์นี้อัตโนมัติเมื่อเริ่มคัดลอกรูป
+DEFAULT_DESTINATION = DESTINATION_ROOT / JOB_FOLDER_NAME
 
 
 def folder_for(path):
