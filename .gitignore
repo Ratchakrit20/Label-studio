@@ -3,7 +3,7 @@ Image_Sorted/
 Image_Sorted.zip
 Cable-sagging/images_fixed/
 All-image-LMR/
-
+Fttr/
 # Runtime databases can contain accounts and annotations.
 labeling/runtime/
 Savety/label_studio_yolo26_person/runtime/
