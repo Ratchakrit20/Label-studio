@@ -17,9 +17,14 @@ for job,p in projects.items():
     # backend when a task is opened. Keep YOLO first for Savety; SAM remains a
     # separate interactive backend and is only used for smart point/box calls.
     models=[]
-    if job=='Savety':
-        models.append(('YOLO26 person','http://127.0.0.1:9090',False))
-    models.append(('SAM 2.1 interactive','http://127.0.0.1:9091',True))
+    if job == 'Savety':
+        # The established 9090 backend now returns person and metadata together.
+        models.append(('Safety person + metadata', 'http://127.0.0.1:9090', False))
+
+    elif job == 'Splitter':
+        models.append(('Splitter combined', 'http://127.0.0.1:9097', False))
+
+    models.append(('SAM 2.1 interactive', 'http://127.0.0.1:9091', True))
     for name,url,interactive in models:
         backend=MLBackend.objects.filter(project_id=p['id'],url=url).first()
         if backend is None:

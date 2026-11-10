@@ -1,2 +1,5 @@
-label-studio==1.23.1
+# Keep the server and its bundled SDK generation aligned. 1.23.2 also fixes
+# the 1.23.1 security and dependency compatibility release issues.
+label-studio==1.23.2
+label-studio-sdk==2.1.2
 

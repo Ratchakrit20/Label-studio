@@ -1,0 +1,7 @@
+<View>
+  <Image name="image" value="$image"/>
+  <RectangleLabels name="object" toName="image">
+    <Label value="lat-long" background="#1DE9B6"/>
+    <Label value="datetime" background="#FFD600"/>
+  </RectangleLabels>
+</View>

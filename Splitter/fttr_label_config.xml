@@ -1,0 +1,16 @@
+<View>
+  <Image name="image" value="$image"/>
+  <Choices name="quality" toName="image" choice="single-radio">
+    <Choice value="Good"/>
+    <Choice value="NotGood"/>
+  </Choices>
+  <RectangleLabels name="object" toName="image">
+    <Label value="cabinet" background="#0052CC"/>
+    <Label value="cabinet_label" background="#FFAB00"/>
+    <Label value="fiber_cable" background="#00E5FF"/>
+    <Label value="tidy_cable" background="#36B37E"/>
+    <Label value="messy_cable" background="#FF5630"/>
+    <Label value="label_tag" background="#6554C0"/>
+    <Label value="foreign_object" background="#FF4081"/>
+  </RectangleLabels>
+</View>

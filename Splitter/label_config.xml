@@ -24,6 +24,11 @@
     <Label value="Cable_Indoor" background="#FF00FF"/>
     <Label value="Cable_Outdoor" background="#00E5FF"/>
   </BrushLabels>
+  <Choices name="quality" toName="image" choice="single-radio">
+    <Choice value="Good"/>
+    <Choice value="NotGood"/>
+    <Choice value="NotApplicable"/>
+  </Choices>
   <Header value="AI: คลิกช่วยเลือกสาย"/>
   <KeyPointLabels name="cable_point" toName="image" smart="true">
     <Label value="Cable_Indoor" background="#FF00FF" smart="true"/>

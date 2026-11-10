@@ -37,7 +37,11 @@ class YOLO26PersonSegmentation(LabelStudioMLBase):
         self.image_size = int(os.getenv("YOLO_IMGSZ", "640"))
         self.device = os.getenv("YOLO_DEVICE") or None
         self.model = YOLO(str(model_path))
-        self.set("model_version", f"yolo26-person-seg:{model_path.name}")
+        metadata_path = Path(os.getenv("METADATA_MODEL_PATH", str(self.DEFAULT_DOCUMENT_ROOT / "lat-long" / "models" / "best.pt"))).expanduser().resolve()
+        if not metadata_path.is_file():
+            raise FileNotFoundError(f"Metadata model not found: {metadata_path}")
+        self.metadata_model = YOLO(str(metadata_path))
+        self.set("model_version", f"safety-person-metadata:{model_path.name}+{metadata_path.name}")
 
     @staticmethod
     def _document_root() -> Path:
@@ -137,6 +141,30 @@ class YOLO26PersonSegmentation(LabelStudioMLBase):
                             "value": {"format": "rle", "rle": mask2rle(mask), "brushlabels": [self.PERSON_LABEL]},
                         }
                     )
+
+            metadata_args = {"source": str(image_path), "conf": self.confidence,
+                             "imgsz": self.image_size, "verbose": False}
+            if self.device:
+                metadata_args["device"] = self.device
+            metadata_output = self.metadata_model.predict(**metadata_args)[0]
+            metadata_height, metadata_width = metadata_output.orig_shape
+            if metadata_output.boxes is not None:
+                for box in metadata_output.boxes:
+                    label = str(self.metadata_model.names[int(box.cls.item())])
+                    if label not in {"lat-long", "datetime"}:
+                        continue
+                    x1, y1, x2, y2 = box.xyxy[0].tolist()
+                    score = float(box.conf.item())
+                    regions.append({
+                        "id": uuid4().hex[:10], "from_name": "metadata_box", "to_name": self.TO_NAME,
+                        "type": "rectanglelabels", "score": score,
+                        "original_width": metadata_width, "original_height": metadata_height,
+                        "image_rotation": 0,
+                        "value": {"x": x1 / metadata_width * 100, "y": y1 / metadata_height * 100,
+                                  "width": (x2 - x1) / metadata_width * 100,
+                                  "height": (y2 - y1) / metadata_height * 100,
+                                  "rotation": 0, "rectanglelabels": [label]},
+                    })
 
             mean_score = (
                 sum(region["score"] for region in regions) / len(regions)

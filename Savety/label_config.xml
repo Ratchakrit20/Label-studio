@@ -21,13 +21,29 @@
       <Label value="safety_shoes" background="#795548"/>
       <Label value="employee_badge" background="#9C27B0"/>
       <Label value="house_number_sign" background="#4CAF50"/>
-      <Label value="lat-long" background="#E91E63"/>
     </BrushLabels>
+  </View>
+  <View style="padding:12px; border:1px solid #673AB7; margin-bottom:12px;">
+    <Header value="2. วาดกรอบพิกัดและวันเวลา"/>
+
+    <RectangleLabels name="metadata_box" toName="image" canRotate="false">
+      <Label value="lat-long" background="#E91E63"/>
+      <Label value="datetime" background="#673AB7"/>
+    </RectangleLabels>
+  </View>
+  <!-- จำแนกแหล่งที่มาของรูปภาพ -->
+  <View style="padding:12px; border:1px solid #607D8B; margin-bottom:12px;">
+    <Header value="แหล่งที่มาของภาพ"/>
+
+    <Choices name="image_source" toName="image" choice="single" required="true">
+      <Choice value="mobile_photo" alias="รูปถ่ายจากมือถือ"/>
+      <Choice value="not_mobile_photo" alias="ไม่ใช่รูปถ่ายจากมือถือ"/>
+    </Choices>
   </View>
 
   <!-- SAM แบบจุด -->
   <View style="padding:12px; border:1px solid #8BC34A; margin-bottom:12px;">
-    <Header value="2. SAM: เลือกคลาสแล้วคลิกบนวัตถุ"/>
+    <Header value="3. SAM: เลือกคลาสแล้วคลิกบนวัตถุ"/>
 
     <KeyPointLabels
       name="sam_point"
@@ -48,7 +64,7 @@
 
   <!-- SAM แบบกรอบ -->
   <View style="padding:12px; border:1px solid #00BCD4; margin-bottom:12px;">
-    <Header value="3. SAM: เลือกคลาสแล้วลากกรอบรอบวัตถุ"/>
+    <Header value="4. SAM: เลือกคลาสแล้วลากกรอบรอบวัตถุ"/>
 
     <RectangleLabels
       name="sam_box"

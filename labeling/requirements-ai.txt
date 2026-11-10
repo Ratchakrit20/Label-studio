@@ -2,4 +2,6 @@ label-studio-ml @ git+https://github.com/HumanSignal/label-studio-ml-backend.git
 ultralytics==8.4.75
 opencv-python==4.13.0.92
 numpy==2.2.6
-Pillow==12.3.0
+# label-studio-sdk (pulled by label-studio-ml) requires Pillow 13 or newer.
+# Keep an upper bound so a future major release is reviewed before adoption.
+Pillow>=13.0.0,<14

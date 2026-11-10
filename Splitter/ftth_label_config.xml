@@ -1,0 +1,13 @@
+<View>
+  <Image name="image" value="$image"/>
+  <RectangleLabels name="object" toName="image">
+    <Label value="SP2_Correct" background="#00C853"/>
+    <Label value="SP2_Incorrect_Unclear" background="#D50000"/>
+    <Label value="SP_Open" background="#00B0FF"/>
+    <Label value="SP_Close" background="#AA00FF"/>
+    <Label value="nameplate" background="#795548"/>
+    <Label value="Fast_Connector" background="#FF6D00"/>
+    <Label value="Connector_Correct" background="#64DD17"/>
+    <Label value="Connector_Wrong_Type" background="#F50057"/>
+  </RectangleLabels>
+</View>
