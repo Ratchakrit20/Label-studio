@@ -23,12 +23,12 @@ REVIEW = "99_ตรวจสอบเลขท้ายไม่ตรงกต�
 EXTENSIONS = {".jpeg", ".jpg", ".png"}
 
 # ใส่ชื่อโฟลเดอร์งานเพียงจุดเดียว
-JOB_FOLDER_NAME = "2026-10-07"
+JOB_FOLDER_NAME = "2026-11-09"
 
 # ต้นทาง: สคริปต์จะค้นหารูปในโฟลเดอร์ย่อยทุกระดับ
 SOURCE_ROOT = Path(r"E:\ratchakt")
 DEFAULT_SOURCES = [
-    SOURCE_ROOT / JOB_FOLDER_NAME,
+    SOURCE_ROOT / "All-image-LMR-ZIP" / JOB_FOLDER_NAME,
 ]
 
 # ปลายทาง: สร้างโฟลเดอร์ชื่อเดียวกับงานโดยอัตโนมัติ
