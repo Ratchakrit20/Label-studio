@@ -9,5 +9,7 @@
     <Label value="Fast_Connector" background="#FF6D00"/>
     <Label value="Connector_Correct" background="#64DD17"/>
     <Label value="Connector_Wrong_Type" background="#F50057"/>
+    <Label value="spl3" background="#FFA39E"/>
+    <Label value="spl3_open" background="#FFA37F"/>
   </RectangleLabels>
 </View>

@@ -12,5 +12,7 @@
     <Label value="messy_cable" background="#FF5630"/>
     <Label value="label_tag" background="#6554C0"/>
     <Label value="foreign_object" background="#FF4081"/>
+    <Label value="spl3" background="#FFA39E"/>
+    <Label value="spl3_open" background="#FFA37F"/>
   </RectangleLabels>
 </View>
