@@ -1,6 +1,7 @@
 <View>
   <Image name="image" value="$image"/>
   <RectangleLabels name="object" toName="image">
+    <Label value="Odf" background="#00B0FF"/>
     <Label value="SP2_Correct" background="#00C853"/>
     <Label value="SP2_Incorrect_Unclear" background="#D50000"/>
     <Label value="SP_Open" background="#00B0FF"/>
