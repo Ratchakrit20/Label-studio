@@ -1,7 +1,12 @@
 <View>
   <Image name="image" value="$image"/>
+  <Header value="เกณฑ์ป้าย SP2: ตรวจว่าอ่านข้อมูลที่ต้องใช้ได้ครบ ไม่ตัดสินความถูกต้องของข้อความหรือรูปแบบ"/>
+  <Header value="SP2_Correct: อ่านข้อมูลที่ต้องใช้ได้ครบและชัดเจน"/>
+  <Header value="SP2_Incorrect_Unclear: อ่านข้อมูลที่ต้องใช้ไม่ครบ เพราะเลือน เบลอ แสงรบกวน หรือมีสิ่งบัง"/>
   <RectangleLabels name="object" toName="image">
     <Label value="Odf" background="#00B0FF"/>
+    <Label value="Odf_damage" background="#C62828"/>
+    <Label value="Odf_door_ajar" background="#FB8C00"/>
     <Label value="SP2_Correct" background="#00C853"/>
     <Label value="SP2_Incorrect_Unclear" background="#D50000"/>
     <Label value="SP_Open" background="#00B0FF"/>

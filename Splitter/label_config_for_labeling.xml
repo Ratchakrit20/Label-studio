@@ -1,0 +1,45 @@
+<View>
+  <Image name="image" value="$image"/>
+  <RectangleLabels name="object" toName="image">
+    <Label value="cabinet" background="#0052CC" hint="ตู้กระจายสัญญาณของงาน FTTR วาดกรอบครอบตัวตู้"/>
+    <Label value="cabinet_label" background="#FFAB00" hint="ป้ายชื่อตู้ FTTR วาดกรอบเฉพาะป้ายชื่อ"/>
+    <Label value="tidy_cable" background="#36B37E" hint="สายกระจายภายในตู้ FTTR ที่จัดเรียงเรียบร้อย"/>
+    <Label value="messy_cable" background="#FF5630" hint="สายกระจายภายในตู้ FTTR ที่จัดเรียงไม่เรียบร้อย"/>
+    <Label value="label_tag" background="#6554C0" hint="ป้ายกำกับประจำสายสัญญาณ วาดกรอบเฉพาะป้าย"/>
+    <Label value="foreign_object" background="#FF4081" hint="วัตถุแปลกปลอมภายในตู้ FTTR"/>
+    <Label value="spl3" background="#FFA39E" hint="อุปกรณ์ SPL3 วาดกรอบครอบตัวอุปกรณ์"/>
+    <Label value="spl3_open" background="#FFA37F" hint="อุปกรณ์ SPL3 ที่ฝาเปิดอยู่"/>
+    <Label value="Odf" background="#00897B" hint="ตู้กระจายสัญญาณ ODF ของงาน FTTH วาดกรอบครอบตัวตู้ ไม่ว่าสภาพปกติหรือเสียหาย"/>
+	<Label value="Odf_damage" background="#C62828" hint="บริเวณตู้ ODF ที่มีความเสียหายชัด เช่น สนิมหรือสีลอก"/>
+    <Label value="Odf_door_ajar" background="#FB8C00" hint="บริเวณฝาตู้ ODF ที่แง้มหรือปิดไม่สนิท มีช่องว่างที่เห็นชัด"/>
+    <Label value="SP2_Correct" background="#00C853" hint="ตัวอักษรบนป้าย SP2 ยังชัดและอ่านได้ ไม่ต้องทำความสะอาดหรือเขียนใหม่ ไม่ตรวจความถูกต้องของข้อความหรือรูปแบบ"/>
+    <Label value="SP2_Incorrect_Unclear" background="#D50000" hint="ตัวอักษรบนป้าย SP2 เสื่อมจนอ่านไม่ชัด เช่น โดนน้ำจนสีละลายหรือสีจาง ต้องทำความสะอาดหรือเขียนใหม่; หากถูกบังจนประเมินสภาพตัวอักษรไม่ได้ ให้ข้ามคลาสนี้"/>
+    <Label value="SP_Open" background="#00B0FF" hint="อุปกรณ์ SP ที่ฝาเปิดอยู่"/>
+    <Label value="SP_Close" background="#AA00FF" hint="อุปกรณ์ SP ที่ฝาปิดอยู่"/>
+    <Label value="nameplate" background="#795548" hint="ป้ายกำกับประจำสายสัญญาณของงาน FTTH วาดกรอบเฉพาะป้าย"/>
+    <Label value="Fast_Connector" background="#FF6D00" hint="หัวสายกระจายสีดำขนาดใหญ่"/>
+    <Label value="Connector_Correct" background="#64DD17" hint="จุดต่อสายกระจายที่ต่อถูกคู่สีกับตัวกระจายสัญญาณ"/>
+    <Label value="Connector_Wrong_Type" background="#F50057" hint="จุดต่อสายกระจายที่ต่อผิดคู่สีกับตัวกระจายสัญญาณ"/>
+    <Label value="lat-long" background="#1DE9B6" hint="กรอบข้อความพิกัดละติจูดและลองจิจูด ไม่ต้องอ่านข้อความ"/>
+    <Label value="datetime" background="#FFD600" hint="กรอบข้อความวันที่และเวลา ไม่ต้องอ่านข้อความ"/>
+  </RectangleLabels>
+  <BrushLabels name="cable" toName="image">
+    <Label value="Cable_Indoor" background="#FF00FF" hint="สายสีเหลือง Cable_Indoor ให้ระบาย mask ตามแนวสาย"/>
+    <Label value="Cable_Outdoor" background="#00E5FF" hint="สายสีดำ Cable_Outdoor ให้ระบาย mask ตามแนวสาย"/>
+  </BrushLabels>
+  <Choices name="quality" toName="image" choice="single-radio">
+    <Choice value="Good" hint="ภาพตู้ FTTR ที่มีการจัดสายเรียบร้อย"/>
+    <Choice value="NotGood" hint="ภาพตู้ FTTR ที่มีการจัดสายไม่เรียบร้อย"/>
+    <Choice value="NotApplicable" hint="ภาพที่ไม่ใช่ตู้ FTTR"/>
+  </Choices>
+  <Header value="AI: คลิกช่วยเลือกสาย"/>
+  <KeyPointLabels name="cable_point" toName="image" smart="true">
+    <Label value="Cable_Indoor" background="#FF00FF" hint="สายสีเหลือง Cable_Indoor ให้ระบาย mask ตามแนวสาย" smart="true"/>
+    <Label value="Cable_Outdoor" background="#00E5FF" hint="สายสีดำ Cable_Outdoor ให้ระบาย mask ตามแนวสาย" smart="true"/>
+  </KeyPointLabels>
+  <Header value="AI: ลากกรอบรอบสาย"/>
+  <RectangleLabels name="cable_box" toName="image" smart="true">
+    <Label value="Cable_Indoor" background="#FF00FF" hint="สายสีเหลือง Cable_Indoor ให้ระบาย mask ตามแนวสาย" smart="true"/>
+    <Label value="Cable_Outdoor" background="#00E5FF" hint="สายสีดำ Cable_Outdoor ให้ระบาย mask ตามแนวสาย" smart="true"/>
+  </RectangleLabels>
+</View>

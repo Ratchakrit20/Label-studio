@@ -1,5 +1,8 @@
 <View>
   <Image name="image" value="$image"/>
+  <Header value="เกณฑ์ป้าย SP2: ตรวจว่าอ่านข้อมูลที่ต้องใช้ได้ครบ ไม่ตัดสินความถูกต้องของข้อความหรือรูปแบบ"/>
+  <Header value="SP2_Correct: อ่านข้อมูลที่ต้องใช้ได้ครบและชัดเจน"/>
+  <Header value="SP2_Incorrect_Unclear: อ่านข้อมูลที่ต้องใช้ไม่ครบ เพราะเลือน เบลอ แสงรบกวน หรือมีสิ่งบัง"/>
   <RectangleLabels name="object" toName="image">
     <Label value="cabinet" background="#0052CC"/>
     <Label value="cabinet_label" background="#FFAB00"/>
